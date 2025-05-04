@@ -1,4 +1,4 @@
-package com.aravind.ctfhir.patients;
+package com.aravind.ctfhir.resourceproviders;
 
 import ca.uhn.fhir.rest.server.SimpleBundleProvider;
 import ca.uhn.fhir.rest.annotation.*;
@@ -16,6 +16,7 @@ import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Organization;
 
 import com.aravind.ctfhir.model.USCorePatient;
+import com.aravind.ctfhir.patient.PatientService;
 
 import java.util.List;
 import java.util.Set;
