@@ -119,7 +119,7 @@ class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public List<Patient> findPatientsUsingArbitraryCtriteria() {
+    public List<Patient> findPatientsUsingArbitraryCtriteria(Map<String, Object> searchParams) {
         LinkedList<Patient> retVal = new LinkedList<Patient>();
 
         for (Deque<Patient> nextPatientList : myIdToPatientVersions.values()) {

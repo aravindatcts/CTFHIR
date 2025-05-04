@@ -1,8 +1,9 @@
 package com.aravind.ctfhir.patient.dao;
 
-import com.aravind.ctfhir.model.PatientEntity;
 import java.util.List;
 import java.util.Optional;
+
+import com.aravind.ctfhir.model.PatientEntity;
 
 //@Repository // Marks this class as a Spring repository
 public class PatientDaoImpl implements PatientDao {
@@ -54,7 +55,8 @@ public class PatientDaoImpl implements PatientDao {
 
     // @Override
     // public Optional<PatientEntity> findById(Long id) {
-    //     String sql = "SELECT id, system_identifier, value_identifier, first_name, last_name, gender, birth_date, is_active, street_address, city, state, zip_code, phone_number, email_address FROM patients WHERE id = ?";
+    //     String sql = "SELECT id, system_identifier, value_identifier, first_name, last_name, gender, 
+    //  birth_date, is_active, street_address, city, state, zip_code, phone_number, email_address FROM patients WHERE id = ?";
     //     try {
     //         // queryForObject is used for single results, throws EmptyResultDataAccessException if none found
     //         PatientEntity patient = jdbcTemplate.queryForObject(sql, new Object[]{id}, rowMapper);

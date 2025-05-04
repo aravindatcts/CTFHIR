@@ -4,10 +4,13 @@ import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import ca.uhn.fhir.rest.server.RestfulServer;
 import ca.uhn.fhir.rest.server.interceptor.ResponseHighlighterInterceptor;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import java.util.ArrayList;
+
 import java.util.Collection;
  
 
@@ -33,7 +36,6 @@ public class FhirServerConfig {
         // Add interceptors (optional)
         server.registerInterceptor(new ResponseHighlighterInterceptor());
 
-
         return server;
     }
 
@@ -45,8 +47,8 @@ public class FhirServerConfig {
 
     // Register the RestfulServer as a servlet
     @Bean
-    public org.springframework.boot.web.servlet.ServletRegistrationBean fhirServletRegistration(RestfulServer restfulServer) {
-        org.springframework.boot.web.servlet.ServletRegistrationBean registration = new org.springframework.boot.web.servlet.ServletRegistrationBean(restfulServer, "/fhir/*"); // Map to /fhir
+    public ServletRegistrationBean<RestfulServer> fhirServletRegistration(RestfulServer restfulServer) {
+        ServletRegistrationBean<RestfulServer> registration = new ServletRegistrationBean<>(restfulServer, "/fhir/*"); // Map to /fhir
         registration.setName("FhirServlet");
         registration.setLoadOnStartup(1);
         return registration;

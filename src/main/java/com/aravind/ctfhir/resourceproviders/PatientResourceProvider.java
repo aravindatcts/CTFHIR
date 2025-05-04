@@ -1,7 +1,29 @@
 package com.aravind.ctfhir.resourceproviders;
 
-import ca.uhn.fhir.rest.server.SimpleBundleProvider;
-import ca.uhn.fhir.rest.annotation.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.hl7.fhir.r4.model.IdType;
+import org.hl7.fhir.r4.model.Organization;
+import org.hl7.fhir.r4.model.Patient;
+import org.springframework.stereotype.Service;
+
+import com.aravind.ctfhir.model.USCorePatient;
+import com.aravind.ctfhir.patient.service.PatientService;
+
+import ca.uhn.fhir.model.api.Include;
+import ca.uhn.fhir.rest.annotation.Create;
+import ca.uhn.fhir.rest.annotation.IdParam;
+import ca.uhn.fhir.rest.annotation.IncludeParam;
+import ca.uhn.fhir.rest.annotation.OptionalParam;
+import ca.uhn.fhir.rest.annotation.Read;
+import ca.uhn.fhir.rest.annotation.ResourceParam;
+import ca.uhn.fhir.rest.annotation.Search;
+import ca.uhn.fhir.rest.annotation.Sort;
+import ca.uhn.fhir.rest.annotation.Update;
 import ca.uhn.fhir.rest.api.MethodOutcome;
 import ca.uhn.fhir.rest.api.SortSpec;
 import ca.uhn.fhir.rest.api.server.IBundleProvider;
@@ -11,19 +33,7 @@ import ca.uhn.fhir.rest.param.ReferenceParam;
 import ca.uhn.fhir.rest.param.StringParam;
 import ca.uhn.fhir.rest.param.TokenParam;
 import ca.uhn.fhir.rest.server.IResourceProvider;
-import org.hl7.fhir.r4.model.IdType;
-import org.hl7.fhir.r4.model.Patient;
-import org.hl7.fhir.r4.model.Organization;
-
-import com.aravind.ctfhir.model.USCorePatient;
-import com.aravind.ctfhir.patient.service.PatientService;
-
-import java.util.List;
-import java.util.Set;
-import ca.uhn.fhir.model.api.Include;
-
-import org.hl7.fhir.instance.model.api.IBaseResource;
-import org.springframework.stereotype.Service;  
+import ca.uhn.fhir.rest.server.SimpleBundleProvider;  
 
 
 
@@ -76,6 +86,37 @@ public class PatientResourceProvider implements IResourceProvider {
 					"Observation:subject" }, reverse = true) final Set<Include> theReverseIncludes) {
 
         System.out.println("Searching patients by family name: " + theFamilyName.getValue());
+
+
+
+         // Create a map to hold the non-null parameters
+        Map<String, Object> searchParams = new HashMap<>();
+
+        // Convert all the non null parameters to a map
+        // Add parameters to the map if they are not null
+        if (thePatientId != null) searchParams.put(USCorePatient.SP_RES_ID, thePatientId);
+        if (thePatientIdentifier != null) searchParams.put(USCorePatient.SP_IDENTIFIER, thePatientIdentifier);
+        if (theActive != null) searchParams.put(USCorePatient.SP_ACTIVE, theActive);
+        if (theFamilyName != null) searchParams.put(USCorePatient.SP_FAMILY, theFamilyName);
+        if (theGivenName != null) searchParams.put(USCorePatient.SP_GIVEN, theGivenName);
+        if (theName != null) searchParams.put(USCorePatient.SP_NAME, theName);
+        if (theGender != null) searchParams.put(USCorePatient.SP_GENDER, theGender);
+        if (theBirthDate != null) searchParams.put(USCorePatient.SP_BIRTHDATE, theBirthDate);
+        if (theAddress != null) searchParams.put(USCorePatient.SP_ADDRESS, theAddress);
+        if (theAddressCity != null) searchParams.put(USCorePatient.SP_ADDRESS_CITY, theAddressCity);
+        if (theAddressState != null) searchParams.put(USCorePatient.SP_ADDRESS_STATE, theAddressState);
+        if (theAddressZip != null) searchParams.put(USCorePatient.SP_ADDRESS_POSTALCODE, theAddressZip);
+        if (theEmail != null) searchParams.put(USCorePatient.SP_EMAIL, theEmail);
+        if (thePhone != null) searchParams.put(USCorePatient.SP_PHONE, thePhone);
+        if (theTelecom != null) searchParams.put(USCorePatient.SP_TELECOM, theTelecom);
+        if (theOrganization != null) searchParams.put(USCorePatient.SP_ORGANIZATION, theOrganization);
+
+        // You can now use the 'searchParams' map, for example, pass it to the service layer
+       
+        // List<Patient> patients = patientService.findPatientsUsingArbitraryCtriteria(searchParams);
+
+        // Convert all the non null parameters to a map
+
         List<Patient> patients = patientService.findPatientsByName(theFamilyName);
         return new SimpleBundleProvider(patients);
     }
