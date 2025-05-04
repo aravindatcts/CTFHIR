@@ -3,11 +3,14 @@ package com.aravind.ctfhir;
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.server.IResourceProvider;
 import ca.uhn.fhir.rest.server.RestfulServer;
+import ca.uhn.fhir.rest.server.interceptor.LoggingInterceptor;
 import ca.uhn.fhir.rest.server.interceptor.ResponseHighlighterInterceptor;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.aravind.ctfhir.interceptors.CapabilityStatementInterceptor;
 
 import java.util.ArrayList;
 
@@ -34,7 +37,14 @@ public class FhirServerConfig {
         server.setResourceProviders(new ArrayList<>(resourceProviders)); // Pass a Collection or List of IResourceProvider
 
         // Add interceptors (optional)
+        LoggingInterceptor loggingInterceptor = new LoggingInterceptor();
         server.registerInterceptor(new ResponseHighlighterInterceptor());
+        server.registerInterceptor(new CapabilityStatementInterceptor());
+        server.registerInterceptor(loggingInterceptor);
+        loggingInterceptor.setLoggerName("test.accesslog");
+      
+       loggingInterceptor.setMessageFormat(
+            "Source[${remoteAddr}] Operation[${operationType} ${idOrResourceName}] UA[${requestHeader.user-agent}] Params[${requestParameters}]");
 
         return server;
     }
