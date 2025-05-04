@@ -1,4 +1,4 @@
-package com.aravind.ctfhir.patient;
+package com.aravind.ctfhir.patient.service;
 
 import java.util.Deque;
 import java.util.HashMap;
@@ -144,6 +144,10 @@ class PatientServiceImpl implements PatientService {
      */
     @Override
     public Patient readPatient(IdType theId) {
+
+        //TODO: Add a call DAO to fetch the patient from DB and pass ID type 
+        // Get the result and use PatientMapper to map to Patient Resource Object and Return back as Patient Object
+    
         Deque<Patient> retVal;
         try {
             retVal = myIdToPatientVersions.get(theId.getIdPartAsLong());

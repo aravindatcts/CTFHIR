@@ -1,4 +1,4 @@
-package com.aravind.ctfhir.patient;
+package com.aravind.ctfhir.patient.service;
 
 import java.util.List;
 

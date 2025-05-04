@@ -16,7 +16,7 @@ import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.Organization;
 
 import com.aravind.ctfhir.model.USCorePatient;
-import com.aravind.ctfhir.patient.PatientService;
+import com.aravind.ctfhir.patient.service.PatientService;
 
 import java.util.List;
 import java.util.Set;
