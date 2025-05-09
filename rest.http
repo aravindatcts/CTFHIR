@@ -10,7 +10,51 @@ content-type: application/json
     "lastUpdated": "2020-08-17T14:03:14.470+00:00",
     "source": "#riIHpZ3lsjW2iBMH"
   },
-
+   "extension" : [
+    {
+      "extension" : [
+        {
+          "url" : "ombCategory",
+          "valueCoding" : {
+            "system" : "urn:oid:2.16.840.1.113883.6.238",
+            "code" : "2028-9",
+            "display" : "Asian"
+          }
+        },
+        {
+          "url" : "text",
+          "valueString" : "Asian"
+        }
+      ],
+      "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+    },
+    {
+      "extension" : [
+        {
+          "url" : "ombCategory",
+          "valueCoding" : {
+            "system" : "urn:oid:2.16.840.1.113883.6.238",
+            "code" : "2186-5",
+            "display" : "Not Hispanic or Latino"
+          }
+        },
+        {
+          "url" : "text",
+          "valueString" : "Not Hispanic or Latino"
+        }
+      ],
+      "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+    },
+    {
+      "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex",
+      "valueCoding" : {
+        "system" : "http://snomed.info/sct",
+        "version" : "http://snomed.info/sct/731000124108",
+        "code" : "248153007",
+        "display" : "Male (finding)"
+      }
+    }
+  ],
   "identifier": [ {
     "system": "www.mypatientidentifier.com/ids",
     "value": "aravind.balasubramanian"
