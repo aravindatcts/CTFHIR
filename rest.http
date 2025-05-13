@@ -28,7 +28,7 @@ content-type: application/json
       ],
       "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
     },
-    {
+    
       "extension" : [
         {
           "url" : "ombCategory",
@@ -97,3 +97,7 @@ GET http://localhost:8080/fhir/metadata HTTP/1.1
 
 ### 
 GET http://localhost:8080/fhir/Organization/1 HTTP/1.1
+
+
+### 
+GET http://localhost:8080/fhir/Practitioner/prac-003 HTTP/1.1

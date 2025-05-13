@@ -2,7 +2,7 @@ package com.aravind.ctfhir.practitioner.service;
 
  
 import ca.uhn.fhir.rest.api.server.IBundleProvider;
-import org.hl7.fhir.r4.model.Practitioner;
+import com.aravind.ctfhir.model.Practitioner;
 import org.hl7.fhir.r4.model.IdType;
 
 import java.util.Map;
