@@ -37,9 +37,52 @@ public class InsurancePlanEntity {
     private String coverageBenefitTypeCode;
     private String coverageBenefitRequirement; // e.g., "Referral required"
 
-
-    // Add getters and setters for all fields
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    // ... add the rest for all fields
+
+    public Boolean getActive() { return active; }
+    public void setActive(Boolean active) { this.active = active; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public List<String> getAliases() { return aliases; }
+    public void setAliases(List<String> aliases) { this.aliases = aliases; }
+
+    public String getPlanTypeSystem() { return planTypeSystem; }
+    public void setPlanTypeSystem(String planTypeSystem) { this.planTypeSystem = planTypeSystem; }
+
+    public String getPlanTypeCode() { return planTypeCode; }
+    public void setPlanTypeCode(String planTypeCode) { this.planTypeCode = planTypeCode; }
+
+    public String getPlanTypeDisplay() { return planTypeDisplay; }
+    public void setPlanTypeDisplay(String planTypeDisplay) { this.planTypeDisplay = planTypeDisplay; }
+
+    public Date getPeriodStart() { return periodStart; }
+    public void setPeriodStart(Date periodStart) { this.periodStart = periodStart; }
+
+    public Date getPeriodEnd() { return periodEnd; }
+    public void setPeriodEnd(Date periodEnd) { this.periodEnd = periodEnd; }
+
+    public Long getOwnedById() { return ownedById; }
+    public void setOwnedById(Long ownedById) { this.ownedById = ownedById; }
+
+    public Long getAdministeredById() { return administeredById; }
+    public void setAdministeredById(Long administeredById) { this.administeredById = administeredById; }
+
+    public String getPlanDetailIdentifierValue() { return planDetailIdentifierValue; }
+    public void setPlanDetailIdentifierValue(String planDetailIdentifierValue) { this.planDetailIdentifierValue = planDetailIdentifierValue; }
+
+    public String getPlanNetworkId() { return planNetworkId; }
+    public void setPlanNetworkId(String planNetworkId) { this.planNetworkId = planNetworkId; }
+
+    public String getCoverageBenefitTypeSystem() { return coverageBenefitTypeSystem; }
+    public void setCoverageBenefitTypeSystem(String coverageBenefitTypeSystem) { this.coverageBenefitTypeSystem = coverageBenefitTypeSystem; }
+
+    public String getCoverageBenefitTypeCode() { return coverageBenefitTypeCode; }
+    public void setCoverageBenefitTypeCode(String coverageBenefitTypeCode) { this.coverageBenefitTypeCode = coverageBenefitTypeCode; }
+
+    public String getCoverageBenefitRequirement() { return coverageBenefitRequirement; }
+    public void setCoverageBenefitRequirement(String coverageBenefitRequirement) { this.coverageBenefitRequirement = coverageBenefitRequirement; }
 }

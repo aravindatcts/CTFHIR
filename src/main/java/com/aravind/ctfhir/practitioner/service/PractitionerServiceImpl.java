@@ -1,18 +1,19 @@
 package com.aravind.ctfhir.practitioner.service;
 
-import ca.uhn.fhir.rest.api.server.IBundleProvider;
-import ca.uhn.fhir.rest.server.SimpleBundleProvider;
-import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
-import com.aravind.ctfhir.model.Practitioner;
-import com.aravind.ctfhir.practitioner.dao.PractitionerDao;
-import org.hl7.fhir.r4.model.IdType;
-import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import org.hl7.fhir.r4.model.IdType;
+import org.springframework.stereotype.Service;
+
+import com.aravind.ctfhir.model.Practitioner;
+import com.aravind.ctfhir.practitioner.dao.PractitionerDao;
+
+import ca.uhn.fhir.rest.api.server.IBundleProvider;
+import ca.uhn.fhir.rest.server.SimpleBundleProvider;
+import ca.uhn.fhir.rest.server.exceptions.ResourceNotFoundException;
 
 @Service // Mark as a Spring service bean
 public class PractitionerServiceImpl implements PractitionerService {
@@ -36,13 +37,13 @@ public class PractitionerServiceImpl implements PractitionerService {
 
     @Override
     public IBundleProvider searchPractitioners(Map<String, Object> searchParams) {
-        List<Practitioner> practitioners = practitionerDao.findByParams(searchParams);
+       // List<Practitioner> practitioners = practitionerDao.findByParams(searchParams);
         // List<Practitioner> practitioners = entities.stream()
         //         .map(this::convertEntityToFhir)
         //         .collect(Collectors.toList());
-        List<SimpleBundleProvider> bundleProviders = new ArrayList<>();
-        bundleProviders.addAll(practitioners);
-        return bundleProviders;
+         List<SimpleBundleProvider> bundleProviders = new ArrayList<>();
+        // bundleProviders.addAll(practitioners);
+         return (IBundleProvider) bundleProviders;
     }
 
     // --- Helper Methods ---

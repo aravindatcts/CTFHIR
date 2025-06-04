@@ -101,3 +101,6 @@ GET http://localhost:8080/fhir/Organization/1 HTTP/1.1
 
 ### 
 GET http://localhost:8080/fhir/Practitioner/prac-003 HTTP/1.1
+
+### 
+GET http://localhost:8080/fhir/ExplanationOfBenefit?patient=111111&type=Medical&periodstart=1900-01-01&periodend=2014-01-01 HTTP/1.1

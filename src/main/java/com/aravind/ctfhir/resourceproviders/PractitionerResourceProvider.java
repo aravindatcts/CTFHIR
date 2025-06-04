@@ -1,22 +1,22 @@
 package com.aravind.ctfhir.resourceproviders;
 
-import ca.uhn.fhir.rest.annotation.IdParam;
-import ca.uhn.fhir.rest.annotation.OptionalParam;
-import ca.uhn.fhir.rest.annotation.Read;
-import ca.uhn.fhir.rest.annotation.Search;
-import ca.uhn.fhir.rest.api.server.IBundleProvider;
-import ca.uhn.fhir.rest.param.DateParam;
-import ca.uhn.fhir.rest.param.StringParam;
-import ca.uhn.fhir.rest.param.TokenParam;
-import ca.uhn.fhir.rest.server.IResourceProvider;
-import com.aravind.ctfhir.practitioner.service.PractitionerService;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.r4.model.IdType;
 import org.hl7.fhir.r4.model.Practitioner;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.aravind.ctfhir.practitioner.service.PractitionerService;
+
+import ca.uhn.fhir.rest.annotation.IdParam;
+import ca.uhn.fhir.rest.annotation.OptionalParam;
+import ca.uhn.fhir.rest.annotation.Read;
+import ca.uhn.fhir.rest.annotation.Search;
+import ca.uhn.fhir.rest.api.server.IBundleProvider;
+import ca.uhn.fhir.rest.param.TokenParam;
+import ca.uhn.fhir.rest.server.IResourceProvider;
 
 @Service
 public class PractitionerResourceProvider implements IResourceProvider {
@@ -40,7 +40,8 @@ public class PractitionerResourceProvider implements IResourceProvider {
     @Read()
     public Practitioner readPractitioner(@IdParam IdType theId) {
         System.out.println("Reading Practitioner with ID: " + theId.getIdPart());
-        return practitionerService.readPractitioner(theId);
+        //return practitionerService.readPractitioner(theId);
+        return null; // Placeholder for actual implementation
     }
 
     /**
